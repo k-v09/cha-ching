@@ -4,8 +4,11 @@ let centralTower;
 let enemies = [];
 let gameLoop;
 let damageMultiplier = 1;
+let score = 0;
 
 const canvas = document.getElementById('gameCanvas');
+const scorer = document.getElementById('score');
+const scores1 = 'Score: ';
 const ctx = canvas.getContext('2d');
 
 class CentralTower {
@@ -135,12 +138,13 @@ class Enemy {
         if (index > -1) {
             enemies.splice(index, 1);
             currency += 5; // reward for killing an enemy
+            score++;
         }
     }
 }
 
 function spawnEnemy() {
-    if (Math.random() < 0.02) {
+    if (Math.random() < (0.01 + 0.01 * Math.floor(score / 20))) {
         enemies.push(new Enemy());
     }
 }
@@ -166,6 +170,7 @@ function updateGame() {
     currency += 0.1;
     document.getElementById('currency').textContent = Math.floor(currency);
     document.getElementById('gems').textContent = gems;
+    scorer.textContent = scores1 + score;
 }
 
 document.getElementById('upgradeTower').addEventListener('click', () => {
