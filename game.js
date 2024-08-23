@@ -191,7 +191,7 @@ document.getElementById('upgradeDamage').addEventListener('click', () => {
 document.getElementById('upgradeSpeed').addEventListener('click', () => {
     if (currency >= 75) {
         currency -= 75;
-        centralTower.attackCooldown = Math.max(centralTower.attackCooldown * 0.9, 100); // Decrease cooldown by 10%, min 0.1s
+        centralTower.attackCooldown = centralTower.attackCooldown * 0.9; // Decrease cooldown by 10%
     }
 });
 

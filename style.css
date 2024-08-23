@@ -4,10 +4,13 @@ canvas {
 
 #game-container {
     display: flex;
-    justify-content: space-between;
 }
 
 #ui {
-    width: 200px;
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    max-width: 200px;
     padding: 10px;
+    float: left;
 }
