@@ -176,6 +176,20 @@ document.getElementById('upgradeTower').addEventListener('click', () => {
     }
 });
 
+document.getElementById('upgradeDamage').addEventListener('click', () => {
+    if (currency >= 50) {
+        currency -= 50;
+        centralTower.damage += 1;  // Increase damage by 1
+    }
+});
+
+document.getElementById('upgradeSpeed').addEventListener('click', () => {
+    if (currency >= 75) {
+        currency -= 75;
+        centralTower.attackCooldown = Math.max(centralTower.attackCooldown * 0.9, 100); // Decrease cooldown by 10%, min 0.1s
+    }
+});
+
 document.getElementById('buyGems').addEventListener('click', () => {
     gems += 100;
 });
